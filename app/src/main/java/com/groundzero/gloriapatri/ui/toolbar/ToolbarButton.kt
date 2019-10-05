@@ -13,7 +13,8 @@ import com.groundzero.gloriapatri.R
 class ToolbarButton<T>(
     private val context: Context,
     private val clazz: Class<T>,
-    private val resource: Int
+    private val resource: Int,
+    private val onClick: () -> Unit
 ) {
 
     fun getButton(): T {
@@ -33,6 +34,7 @@ class ToolbarButton<T>(
                 }
             }
         view?.setBackgroundColor(Color.TRANSPARENT)
+        view?.setOnClickListener { onClick.invoke() }
 
         return view as T
     }

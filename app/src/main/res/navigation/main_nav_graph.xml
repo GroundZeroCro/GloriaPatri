@@ -35,6 +35,18 @@
         android:label="Hard coded"
         tools:layout="@layout/dialog_decision">
 
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="positiveButtonText"
+            app:argType="string" />
+        <argument
+            android:name="negativeButtonText"
+            app:argType="string" />
     </dialog>
 
 </navigation>

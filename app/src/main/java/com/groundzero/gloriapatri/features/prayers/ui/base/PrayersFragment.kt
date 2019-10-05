@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -36,6 +35,7 @@ class PrayersFragment : BaseFragment(), Injectable {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        inflateToolbar()
         viewPagerAdapter = PrayersViewPagerAdapter(childFragmentManager)
         val binding =
             FragmentPrayersBinding.inflate(LayoutInflater.from(context), container, false).apply {
@@ -58,15 +58,18 @@ class PrayersFragment : BaseFragment(), Injectable {
             }
         })
 
-        val buttonIcons: Array<out View> = arrayOf(
-            ToolbarButton(requireContext(),
-                ImageButton::class.java, R.drawable.bookmark_svg).getButton()
-        )
-        setToolbarButtons(buttonIcons)
         return binding.root
     }
 
     private fun showMessage(message: String) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+    }
+
+    private fun inflateToolbar() {
+        val buttonIcons: Array<out View> = arrayOf(
+            ToolbarButton(requireContext(),
+                ImageButton::class.java, R.drawable.bookmark_svg, {}).getButton()
+        )
+        setToolbarButtons(buttonIcons)
     }
 }

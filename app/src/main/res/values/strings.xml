@@ -13,4 +13,9 @@
     <string name="toolbar_exception_wrong_view_passed">Passed wrong view object!</string>
     <!--Toast messages-->
     <string name="error_fetching_data">Unable to fetch data</string>
+    <!--Dialog Bookmark prayer-->
+    <string name="dialog_bookmark_prayer_title">Add to Bookmarks</string>
+    <string name="dialog_bookmark_prayer_text">Would you like to bookmark prayer?</string>
+    <string name="dialog_bookmark_prayer_positive_button">Add</string>
+    <string name="dialog_bookmark_prayer_negative_button">Cancel</string>
 </resources>
