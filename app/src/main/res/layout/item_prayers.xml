@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="prayer"
+            type="com.groundzero.gloriapatri.data.prayers.Prayer" />
+
+        <variable
+            name="listIndex"
+            type="java.lang.Integer" />
+
+        <variable
+            name="itemClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/item_card_background"
+        app:cardCornerRadius="@dimen/item_card_radius"
+        app:cardElevation="@dimen/item_card_elevation">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{itemClickListener}"
+            android:orientation="vertical"
+            android:padding="@dimen/medium_padding">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/prayer_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/minimal_padding"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:text="@{prayer.title}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorTextPrimaryDark"
+                    android:textSize="@dimen/item_prayers_text_title" />
+
+                <TextView
+                    android:id="@+id/prayer_length"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="1"
+                    android:text="@{prayer.title}"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorPrimaryTextMediumAlpha"
+                    android:textSize="@dimen/item_prayers_text_subtitle" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/prayer_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:maxLines="1"
+                android:text="@{prayer.text}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryTextMediumAlpha"
+                android:textSize="@dimen/item_prayers_text_subtitle" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

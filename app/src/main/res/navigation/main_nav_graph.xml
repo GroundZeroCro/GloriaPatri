@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/prayersFragment">
+
+    <fragment
+        android:id="@+id/prayersFragment"
+        android:name="com.groundzero.gloriapatri.features.prayers.ui.base.PrayersFragment"
+        android:label="fragment_prayers"
+        tools:layout="@layout/fragment_prayers" />
+    <fragment
+        android:id="@+id/singlePrayerFragment"
+        android:name="com.groundzero.gloriapatri.features.singleprayer.SinglePrayerFragment"
+        android:label="fragment_single_prayer"
+        tools:layout="@layout/fragment_single_prayer" >
+        <argument android:name="prayerId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/alarmListFragment"
+        android:name="com.groundzero.gloriapatri.features.alarm.AlarmListFragment"
+        android:label="fragment_alarm_list"
+        tools:layout="@layout/fragment_alarm_list" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.groundzero.gloriapatri.features.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+</navigation>

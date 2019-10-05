@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!--General-->
+    <color name="app_brown_4">#736D6D</color>
+    <color name="app_brown_3">#A59F9F</color>
+    <color name="app_brown_1">#D2D2C4</color>
+    <color name="app_white_1">#EEF2F0</color>
+    <color name="app_green_1">#78A6A4</color>
+    <color name="app_green_2">#5D817E</color>
+    <color name="app_black_alpha_1">#99000000</color>
+    <!--Global-->
+    <color name="colorPrimary">@color/app_brown_1</color>
+    <color name="colorPrimaryLight">@color/app_brown_3</color>
+    <color name="colorPrimaryDark">@color/app_green_1</color>
+    <color name="colorPrimaryDarker">@color/app_green_2</color>
+    <color name="colorAccent">#FFCC80</color>
+    <color name="colorIconPrimary">@color/app_white_1</color>
+    <color name="colorTextPrimaryDark">@color/app_brown_4</color>
+    <color name="colorTextPrimaryLight">@color/app_white_1</color>
+    <color name="colorPrimaryTextMediumAlpha">@color/app_brown_3</color>
+    <!--SinglePrayerFragment-->
+    <color name="single_prayer_fragment_background">@color/app_brown_1</color>
+    <color name="single_prayer_fragment_text_title">@color/colorTextPrimaryLight</color>
+    <color name="single_prayer_fragment_text_regular">@color/app_black_alpha_1</color>
+    <!--Item Card-->
+    <color name="item_card_background">@color/app_white_1</color>
+</resources>
+

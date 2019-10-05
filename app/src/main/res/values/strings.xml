@@ -1,0 +1,16 @@
+<resources>
+    <!--UI-->
+    <string name="app_name">Gloria Patri</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="daily_readings">Dnevna čitanja</string>
+    <string name="alarm">Molitveni alarm</string>
+    <string name="rate_us">Ocijenite nas</string>
+    <string name="share">Podijeliti</string>
+    <string name="settings">Postavke</string>
+    <string name="about">O aplikaciji</string>
+    <string name="add_prayer_to_bookmark">Add to Bookmarks</string>
+    <!--Exceptions-->
+    <string name="toolbar_exception_wrong_view_passed">Passed wrong view object!</string>
+    <!--Toast messages-->
+    <string name="error_fetching_data">Unable to fetch data</string>
+</resources>
