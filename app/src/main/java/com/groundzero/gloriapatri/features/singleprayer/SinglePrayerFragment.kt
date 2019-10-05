@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.groundzero.gloriapatri.R
 import com.groundzero.gloriapatri.base.BaseFragment
@@ -40,6 +41,8 @@ class SinglePrayerFragment : BaseFragment(), Injectable {
             FragmentSinglePrayerBinding.inflate(inflater, container, false).apply {
                 prayer = viewModel.prayer(args.prayerId)
             }
+
+        findNavController().navigate(R.id.decisionDialog)
 
         val buttonIcons: Array<out View> = arrayOf(
             ToolbarButton(requireContext(),

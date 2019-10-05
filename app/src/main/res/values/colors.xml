@@ -9,6 +9,7 @@
     <color name="app_green_1">#78A6A4</color>
     <color name="app_green_2">#5D817E</color>
     <color name="app_black_alpha_1">#99000000</color>
+    <color name="app_text_1">#6E7574</color>
     <!--Global-->
     <color name="colorPrimary">@color/app_brown_1</color>
     <color name="colorPrimaryLight">@color/app_brown_3</color>
@@ -23,7 +24,11 @@
     <color name="single_prayer_fragment_background">@color/app_brown_1</color>
     <color name="single_prayer_fragment_text_title">@color/colorTextPrimaryLight</color>
     <color name="single_prayer_fragment_text_regular">@color/app_black_alpha_1</color>
+    <color name="single_prayer_fragment_text_">@color/app_text_1</color>
     <!--Item Card-->
     <color name="item_card_background">@color/app_white_1</color>
+    <color name="dialog">@color/app_white_1</color>
+    <color name="dialog_button_text">@color/app_green_1</color>
+    <color name="dialog_divider">#20000000</color>
 </resources>
 

@@ -48,6 +48,7 @@
                     style="@style/SinglePrayerTitle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:textSize="@dimen/prayer_title_text"
                     android:gravity="center"
                     android:padding="@dimen/medium_padding"
                     android:text="@{prayer.title}" />
@@ -57,9 +58,8 @@
                 android:id="@+id/text"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="8dp"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center|top"
                 android:padding="@dimen/medium_padding"
                 android:text="@{prayer.text}"
                 android:textColor="@color/single_prayer_fragment_text_regular"

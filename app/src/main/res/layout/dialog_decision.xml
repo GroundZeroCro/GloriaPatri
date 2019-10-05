@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_decision"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="This is title"
+                android:textColor="@color/colorTextPrimaryDark"
+                android:textSize="@dimen/dialog_title"
+                android:paddingTop="@dimen/medium_padding"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Some explanation about this dialog and what to do about it?"
+                android:textSize="@dimen/dialog_text"
+                android:textColor="@color/colorTextPrimaryDark"
+                android:gravity="center"
+                android:padding="@dimen/medium_padding"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dialog_divider"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Accept"
+                    android:textColor="@color/dialog_button_text"
+                    android:textSize="@dimen/dialog_button"
+                    android:padding="@dimen/medium_padding"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:textAllCaps="false"/>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/dialog_divider"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Cancel"
+                    android:textColor="@color/dialog_button_text"
+                    android:textSize="@dimen/dialog_button"
+                    android:padding="@dimen/medium_padding"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

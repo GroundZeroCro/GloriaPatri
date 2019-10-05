@@ -22,7 +22,7 @@
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/app_bar"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/app_toolbar_height"
                 android:fitsSystemWindows="true"
                 android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 

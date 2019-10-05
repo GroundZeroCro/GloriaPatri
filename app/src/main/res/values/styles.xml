@@ -6,18 +6,18 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@drawable/main_background</item>
         <item name="android:textColor">@color/colorTextPrimaryDark</item>
-        <item name="android:fontFamily">@font/barlow</item>
+        <item name="android:fontFamily">@font/text_r</item>
         <item name="android:textSize">@dimen/regular_text_size</item>
     </style>
 
     <style name="SinglePrayerTitle">
-        <item name="android:fontFamily">@font/mueller</item>
+        <item name="android:fontFamily">@font/handwrite_r</item>
         <item name="android:textColor">@color/single_prayer_fragment_text_title</item>
         <item name="android:textSize">@dimen/prayer_title_text</item>
         <item name="android:shadowColor">@color/app_black_alpha_1</item>
-        <item name="android:shadowDy">-2</item>
-        <item name="android:shadowDx">2</item>
-        <item name="android:shadowRadius">5</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowRadius">6</item>
     </style>
 
 </resources>
