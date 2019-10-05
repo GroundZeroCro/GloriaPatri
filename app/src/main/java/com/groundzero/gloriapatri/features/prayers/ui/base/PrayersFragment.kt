@@ -60,9 +60,7 @@ class PrayersFragment : BaseFragment(), Injectable {
 
         val buttonIcons: Array<out View> = arrayOf(
             ToolbarButton(requireContext(),
-                ImageButton::class.java, R.drawable.bookmark_svg).getButton(),
-            ToolbarButton(requireContext(),
-                Button::class.java, R.string.add_prayer_to_bookmark).getButton()
+                ImageButton::class.java, R.drawable.bookmark_svg).getButton()
         )
         setToolbarButtons(buttonIcons)
         return binding.root
