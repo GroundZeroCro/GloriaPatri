@@ -49,15 +49,18 @@ class DecisionDialog : DialogFragment(), Injectable {
                 decisionDialogNegativeButton.text = args.negativeButton
 
                 decisionDialogPositiveButton.setOnClickListener {
-                    viewModel.setDialogDecision(Decision(args.decisionType, true))
+                    viewModel.setDialogDecision(requireDecision(true))
                     dismiss()
                 }
                 decisionDialogNegativeButton.setOnClickListener {
-                    viewModel.setDialogDecision(Decision(args.decisionType, false))
+                    viewModel.setDialogDecision(requireDecision(false))
                     dismiss()
                 }
             }.root
     }
+
+    private fun requireDecision(isAccepted: Boolean) =
+        Decision(DecisionType.valueOf(args.decisionType)!!, isAccepted)
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

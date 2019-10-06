@@ -59,7 +59,7 @@ class SinglePrayerFragment : BaseFragment(), Injectable {
     private fun subscribeDecisionDialog() {
         decisionViewModel.getDialogDecision().observe(this, Observer { decision ->
             when (decision.decisionType) {
-                DecisionType.PRAYER_ADD_BOOKMARK.code -> {
+                DecisionType.PRAYER_ADD_BOOKMARK -> {
                     if(decision.isAccepted) {
                         Toast.makeText(context, "You selected yes", Toast.LENGTH_LONG).show()
                     }else {
