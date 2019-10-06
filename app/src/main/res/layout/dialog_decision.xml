@@ -13,6 +13,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/decision_dialog_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -22,6 +23,7 @@
                 android:paddingTop="@dimen/medium_padding"/>
 
             <TextView
+                android:id="@+id/decision_dialog_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Some explanation about this dialog and what to do about it?"
@@ -41,6 +43,7 @@
                 android:gravity="center">
 
                 <Button
+                    android:id="@+id/decision_dialog_positive_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -58,6 +61,7 @@
                     android:background="@color/dialog_divider"/>
 
                 <Button
+                    android:id="@+id/decision_dialog_negative_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"

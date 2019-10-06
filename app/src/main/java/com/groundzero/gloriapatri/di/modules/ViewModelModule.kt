@@ -6,6 +6,7 @@ import com.groundzero.gloriapatri.di.helper.ViewModelFactory
 import com.groundzero.gloriapatri.di.helper.ViewModelKey
 import com.groundzero.gloriapatri.features.prayers.ui.base.PrayersViewModel
 import com.groundzero.gloriapatri.features.singleprayer.SinglePrayerViewModel
+import com.groundzero.gloriapatri.ui.decisiondialog.DecisionDialogViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -22,6 +23,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SinglePrayerViewModel::class)
     abstract fun bindSingleprayerViewModel(viewModel: SinglePrayerViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DecisionDialogViewModel::class)
+    abstract fun bindDecisionDialogViewModel(viewModel: DecisionDialogViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
