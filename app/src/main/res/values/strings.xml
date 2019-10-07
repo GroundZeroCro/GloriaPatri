@@ -18,4 +18,9 @@
     <string name="dialog_bookmark_prayer_text">Would you like to bookmark prayer?</string>
     <string name="dialog_bookmark_prayer_positive_button">Add</string>
     <string name="dialog_bookmark_prayer_negative_button">Cancel</string>
+    <string name="decision_dialog_tag">decision_dialog_tag</string>
+    <string name="decision_dialog_key_title">decision_dialog_title</string>
+    <string name="decision_dialog_key_text">decision_dialog_text</string>
+    <string name="decision_dialog_key_positive_button">decision_dialog_positive_button</string>
+    <string name="decision_dialog_key_negative_button">decision_dialog_negative_button</string>
 </resources>

@@ -29,25 +29,4 @@
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
 
-    <dialog
-        android:id="@+id/decisionDialog"
-        android:name="com.groundzero.gloriapatri.ui.decisiondialog.DecisionDialog"
-        android:label="Hard coded"
-        tools:layout="@layout/dialog_decision">
-        <argument
-            android:name="decisionType"
-            app:argType="integer" />
-        <argument android:name="title"
-            app:argType="string" />
-        <argument
-            android:name="text"
-            app:argType="string" />
-        <argument
-            android:name="positiveButton"
-            app:argType="string" />
-        <argument
-            android:name="negativeButton"
-            app:argType="string" />
-    </dialog>
-
 </navigation>
