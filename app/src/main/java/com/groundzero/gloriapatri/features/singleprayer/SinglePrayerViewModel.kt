@@ -7,5 +7,5 @@ import javax.inject.Inject
 
 class SinglePrayerViewModel @Inject constructor(private val dao: PrayersDao) : ViewModel() {
 
-    val prayer = fun(prayerId: String): Prayer = dao.getPrayerPerPrayerId(prayerId)
+  val prayer = fun(prayerId: String): Prayer = dao.getPrayerPerPrayerId(prayerId)
 }

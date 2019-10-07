@@ -5,11 +5,11 @@ import com.groundzero.gloriapatri.features.prayers.data.PrayersRepository
 import javax.inject.Inject
 
 class PrayersViewModel @Inject constructor(private val repository: PrayersRepository) :
-    ViewModel() {
+  ViewModel() {
 
-    val prayers = repository.prayers
+  val prayers = repository.prayers
 
-    companion object {
-        const val PRAYER_TAG = "tag"
-    }
+  companion object {
+    const val PRAYER_TAG = "tag"
+  }
 }

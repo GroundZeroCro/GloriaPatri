@@ -20,10 +20,8 @@
     <string name="dialog_bookmark_prayer_negative_button">Cancel</string>
     <!--Decision Dialog-->
     <string name="decision_dialog_tag">decision_dialog_tag</string>
-    <string name="decision_dialog_key_title">decision_dialog_title</string>
-    <string name="decision_dialog_key_text">decision_dialog_text</string>
-    <string name="decision_dialog_key_positive_button">decision_dialog_positive_button</string>
-    <string name="decision_dialog_key_negative_button">decision_dialog_negative_button</string>
-    <string name="decision_dialog_key_code">decision_dialog_key_code</string>
     <string name="decision_dialog_exception_no_bundle">Bundle wasn\'t included upon opening DecisionDialog</string>
+    <string name="decision_dialog_exception_listener_not_implemented">DecisionDialog.Listener has to be implemented in parent class</string>
+    <string name="decision_dialog_key_serialization">decision_dialog_key_serialization</string>
+    <string name="decision_dialog_exception_wrong_bundle">Passed bundle needs to contain Decision serialized data</string>
 </resources>

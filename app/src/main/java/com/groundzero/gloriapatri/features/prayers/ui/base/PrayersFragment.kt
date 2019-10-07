@@ -22,54 +22,54 @@ import javax.inject.Inject
 
 class PrayersFragment : BaseFragment(), Injectable {
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: PrayersViewModel
-    private lateinit var viewPagerAdapter: PrayersViewPagerAdapter
+  @Inject
+  lateinit var viewModelFactory: ViewModelProvider.Factory
+  private lateinit var viewModel: PrayersViewModel
+  private lateinit var viewPagerAdapter: PrayersViewPagerAdapter
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        AndroidSupportInjection.inject(this)
-    }
+  override fun onAttach(context: Context) {
+    super.onAttach(context)
+    AndroidSupportInjection.inject(this)
+  }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        inflateToolbar()
-        viewPagerAdapter = PrayersViewPagerAdapter(childFragmentManager)
-        val binding =
-            FragmentPrayersBinding.inflate(LayoutInflater.from(context), container, false).apply {
-                prayersTabs.setupWithViewPager(prayersViewPager)
-            }
-        viewModel = injectViewModel(viewModelFactory)
+  override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+  ): View? {
+    inflateToolbar()
+    viewPagerAdapter = PrayersViewPagerAdapter(childFragmentManager)
+    val binding =
+      FragmentPrayersBinding.inflate(LayoutInflater.from(context), container, false).apply {
+        prayersTabs.setupWithViewPager(prayersViewPager)
+      }
+    viewModel = injectViewModel(viewModelFactory)
 
-        viewModel.prayers.observe(this, Observer {
-            when (it.status) {
-                Result.Status.LOADING -> setProgressBarVisibility(true)
-                Result.Status.SUCCESS -> {
-                    setProgressBarVisibility(false)
-                    viewPagerAdapter.generateChildFragments(it.data!!)
-                    binding.prayersViewPager.adapter = viewPagerAdapter
-                }
-                Result.Status.ERROR -> {
-                    setProgressBarVisibility(false)
-                    showMessage(resources.getString(R.string.error_fetching_data))
-                }
-            }
-        })
+    viewModel.prayers.observe(this, Observer {
+      when (it.status) {
+        Result.Status.LOADING -> setProgressBarVisibility(true)
+        Result.Status.SUCCESS -> {
+          setProgressBarVisibility(false)
+          viewPagerAdapter.generateChildFragments(it.data!!)
+          binding.prayersViewPager.adapter = viewPagerAdapter
+        }
+        Result.Status.ERROR -> {
+          setProgressBarVisibility(false)
+          showMessage(resources.getString(R.string.error_fetching_data))
+        }
+      }
+    })
 
-        return binding.root
-    }
+    return binding.root
+  }
 
-    private fun showMessage(message: String) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
-    }
+  private fun showMessage(message: String) {
+    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+  }
 
-    private fun inflateToolbar() {
-        val buttonIcons: Array<out View> = arrayOf(
-            ToolbarButton(requireContext(),
-                ImageButton::class.java, R.drawable.bookmark_svg, {}).getButton()
-        )
-        setToolbarButtons(buttonIcons)
-    }
+  private fun inflateToolbar() {
+    val buttonIcons: Array<out View> = arrayOf(
+      ToolbarButton(requireContext(),
+        ImageButton::class.java, R.drawable.bookmark_svg, {}).getButton()
+    )
+    setToolbarButtons(buttonIcons)
+  }
 }

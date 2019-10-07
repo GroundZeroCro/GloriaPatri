@@ -10,11 +10,11 @@ import javax.inject.Singleton
 @Module
 class PersistenceModule {
 
-    @Singleton
-    @Provides
-    fun providePrayersDao(db: PersistenceDatabase): PrayersDao = db.getPrayersDao()
+  @Singleton
+  @Provides
+  fun providePrayersDao(db: PersistenceDatabase): PrayersDao = db.getPrayersDao()
 
-    @Singleton
-    @Provides
-    fun providePersistenceDatabase(app: Application) = PersistenceDatabase.getInstance(app)
+  @Singleton
+  @Provides
+  fun providePersistenceDatabase(app: Application) = PersistenceDatabase.getInstance(app)
 }

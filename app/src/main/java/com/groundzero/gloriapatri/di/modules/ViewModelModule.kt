@@ -13,16 +13,16 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class ViewModelModule {
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(PrayersViewModel::class)
-    abstract fun bindPrayersViewModel(viewModel: PrayersViewModel): ViewModel
+  @Binds
+  @IntoMap
+  @ViewModelKey(PrayersViewModel::class)
+  abstract fun bindPrayersViewModel(viewModel: PrayersViewModel): ViewModel
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(SinglePrayerViewModel::class)
-    abstract fun bindSingleprayerViewModel(viewModel: SinglePrayerViewModel): ViewModel
+  @Binds
+  @IntoMap
+  @ViewModelKey(SinglePrayerViewModel::class)
+  abstract fun bindSingleprayerViewModel(viewModel: SinglePrayerViewModel): ViewModel
 
-    @Binds
-    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+  @Binds
+  abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 }

@@ -20,32 +20,32 @@ import javax.inject.Inject
  */
 class PrayersContentFragment : Fragment(), Injectable, ScrollingListener {
 
-    @Inject
-    lateinit var presenter: PrayersContentPresenter
+  @Inject
+  lateinit var presenter: PrayersContentPresenter
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val binding =
-            FragmentPrayersContentBinding.inflate(inflater, container, false).apply {
-                val adapter = PrayerContentAdapter(this@PrayersContentFragment)
-                prayersRecyclerView.apply {
-                    this.adapter = adapter
-                    this.addItemDecoration(
-                        MarginItemDecoration(resources.getDimension(R.dimen.item_prayer_recycler_margin).toInt())
-                    )
-                }
-                adapter.submitList(presenter.prayers(presenter.getTag(arguments!!)))
-            }
-        return binding.root
-    }
+  override fun onCreateView(
+    inflater: LayoutInflater,
+    container: ViewGroup?,
+    savedInstanceState: Bundle?
+  ): View? {
+    val binding =
+      FragmentPrayersContentBinding.inflate(inflater, container, false).apply {
+        val adapter = PrayerContentAdapter(this@PrayersContentFragment)
+        prayersRecyclerView.apply {
+          this.adapter = adapter
+          this.addItemDecoration(
+            MarginItemDecoration(resources.getDimension(R.dimen.item_prayer_recycler_margin).toInt())
+          )
+        }
+        adapter.submitList(presenter.prayers(presenter.getTag(arguments!!)))
+      }
+    return binding.root
+  }
 
-    override fun getRecyclerScrollState() = prayers_recycler_view.scrollState
+  override fun getRecyclerScrollState() = prayers_recycler_view.scrollState
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        AndroidSupportInjection.inject(this)
-    }
+  override fun onAttach(context: Context) {
+    super.onAttach(context)
+    AndroidSupportInjection.inject(this)
+  }
 }

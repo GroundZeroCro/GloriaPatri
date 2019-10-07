@@ -8,12 +8,12 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class FragmentsModule {
-    @ContributesAndroidInjector
-    abstract fun contributePrayersFragment(): PrayersFragment
+  @ContributesAndroidInjector
+  abstract fun contributePrayersFragment(): PrayersFragment
 
-    @ContributesAndroidInjector
-    abstract fun contributeSinglePrayerFragment(): SinglePrayerFragment
+  @ContributesAndroidInjector
+  abstract fun contributeSinglePrayerFragment(): SinglePrayerFragment
 
-    @ContributesAndroidInjector
-    abstract fun contributePrayersFragmentContent(): PrayersContentFragment
+  @ContributesAndroidInjector
+  abstract fun contributePrayersFragmentContent(): PrayersContentFragment
 }

@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class PrayersContentPresenter @Inject constructor(private val dao: PrayersDao) {
 
-    val prayers = fun(tag: String):List<Prayer> {return dao.getPrayersPerTag(tag)}
+  val prayers = fun(tag: String): List<Prayer> { return dao.getPrayersPerTag(tag) }
 
-    fun getTag(arguments: Bundle): String = arguments.getString(PrayersViewModel.PRAYER_TAG)!!
+  fun getTag(arguments: Bundle): String = arguments.getString(PrayersViewModel.PRAYER_TAG)!!
 }

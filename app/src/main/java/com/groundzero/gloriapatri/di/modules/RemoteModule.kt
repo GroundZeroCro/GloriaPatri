@@ -11,15 +11,15 @@ import javax.inject.Singleton
 @Module
 class RemoteModule {
 
-    @Provides
-    fun providePrayersCollection(fb: FirebaseFirestore): CollectionReference =
-        fb.collection(PRAYERS_COLLECTION)
+  @Provides
+  fun providePrayersCollection(fb: FirebaseFirestore): CollectionReference =
+    fb.collection(PRAYERS_COLLECTION)
 
-    @Singleton
-    @Provides
-    fun provideFirestore(): FirebaseFirestore = Firebase.firestore
+  @Singleton
+  @Provides
+  fun provideFirestore(): FirebaseFirestore = Firebase.firestore
 
-    companion object {
-        private const val PRAYERS_COLLECTION = "prayers"
-    }
+  companion object {
+    private const val PRAYERS_COLLECTION = "prayers"
+  }
 }

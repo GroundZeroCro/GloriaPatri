@@ -7,18 +7,18 @@ import android.widget.LinearLayout
 
 class ToolbarButtonGroup(context: Context) : LinearLayout(context) {
 
-    init {
-        gravity = Gravity.RIGHT
-        orientation = HORIZONTAL
-    }
+  init {
+    gravity = Gravity.RIGHT
+    orientation = HORIZONTAL
+  }
 
-    fun addButtons(buttonIcons: Array<out View>) {
-        buttonIcons.forEach { toolbarButton -> addView(toolbarButton) }
-    }
+  fun addButtons(buttonIcons: Array<out View>) {
+    buttonIcons.forEach { toolbarButton -> addView(toolbarButton) }
+  }
 
-    fun onDestroy() {
-        if (childCount > 0) {
-            removeAllViewsInLayout()
-        }
+  fun onDestroy() {
+    if (childCount > 0) {
+      removeAllViewsInLayout()
     }
+  }
 }
