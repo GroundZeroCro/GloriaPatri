@@ -18,6 +18,10 @@ import com.groundzero.gloriapatri.databinding.DialogDecisionBinding
  */
 class DecisionDialog : DialogFragment() {
 
+    interface Listener {
+        fun onSelectedAnswer(decisionType: DecisionType, isConfirmed: Boolean)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,20 +31,31 @@ class DecisionDialog : DialogFragment() {
 
         return DialogDecisionBinding
             .inflate(inflater, container, false).apply {
-                decisionDialogTitle.text =
-                    arguments?.getString(resources.getString(R.string.decision_dialog_key_title))
-                decisionDialogText.text =
-                    arguments?.getString(resources.getString(R.string.decision_dialog_key_text))
-                decisionDialogPositiveButton.text =
-                    arguments?.getString(resources.getString(R.string.decision_dialog_key_positive_button))
-                decisionDialogNegativeButton.text =
-                    arguments?.getString(resources.getString(R.string.decision_dialog_key_negative_button))
 
-                decisionDialogPositiveButton.setOnClickListener {
-                    dismiss()
-                }
-                decisionDialogNegativeButton.setOnClickListener {
-                    dismiss()
+                arguments
+                    ?: throw DecisionDialogException(getString(R.string.decision_dialog_exception_no_bundle))
+
+                arguments?.let {
+                    val decision = Decision(
+                        it.getString(getString(R.string.decision_dialog_key_title))!!,
+                        it.getString(getString(R.string.decision_dialog_key_text))!!,
+                        it.getString(getString(R.string.decision_dialog_key_positive_button))!!,
+                        it.getString(getString(R.string.decision_dialog_key_negative_button))!!,
+                        DecisionType.valueOf(it.getInt(getString(R.string.decision_dialog_key_code)))!!
+                    )
+
+                    this.decision = decision
+
+                    val listener = parentFragment as Listener
+
+                    decisionPositive.setOnClickListener {
+                        listener.onSelectedAnswer(decision.type, true)
+                        dismiss()
+                    }
+                    decisionNegative.setOnClickListener {
+                        listener.onSelectedAnswer(decision.type, false)
+                        dismiss()
+                    }
                 }
             }.root
     }

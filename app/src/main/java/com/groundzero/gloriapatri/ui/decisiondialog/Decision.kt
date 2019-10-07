@@ -1,6 +1,9 @@
 package com.groundzero.gloriapatri.ui.decisiondialog
 
 data class Decision(
-    val decisionType: DecisionType,
-    val isAccepted: Boolean
+    var title: String,
+    var text: String,
+    var positiveButton: String,
+    var negativeButton: String,
+    var type: DecisionType
 )

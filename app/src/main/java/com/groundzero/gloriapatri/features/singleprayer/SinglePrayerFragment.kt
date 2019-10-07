@@ -14,12 +14,15 @@ import com.groundzero.gloriapatri.base.BaseFragment
 import com.groundzero.gloriapatri.databinding.FragmentSinglePrayerBinding
 import com.groundzero.gloriapatri.di.helper.Injectable
 import com.groundzero.gloriapatri.di.helper.injectViewModel
+import com.groundzero.gloriapatri.ui.decisiondialog.Decision
 import com.groundzero.gloriapatri.ui.decisiondialog.DecisionDialog
+import com.groundzero.gloriapatri.ui.decisiondialog.DecisionType
+import com.groundzero.gloriapatri.ui.decisiondialog.decisionBundle
 import com.groundzero.gloriapatri.ui.toolbar.ToolbarButton
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-class SinglePrayerFragment : BaseFragment(), Injectable {
+class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -61,29 +64,28 @@ class SinglePrayerFragment : BaseFragment(), Injectable {
     private fun openDecisionDialog() {
 
         requireContext().apply {
-            val title = getString(R.string.dialog_bookmark_prayer_title)
-            val text = getString(R.string.dialog_bookmark_prayer_text)
-            val positiveButton = getString(R.string.dialog_bookmark_prayer_positive_button)
-            val negativeButton = getString(R.string.dialog_bookmark_prayer_negative_button)
-
-            val bundle = Bundle().apply {
-                putString(resources.getString(R.string.decision_dialog_key_title), title)
-                putString(resources.getString(R.string.decision_dialog_key_text), text)
-                putString(
-                    resources.getString(R.string.decision_dialog_key_positive_button),
-                    positiveButton
-                )
-                putString(
-                    resources.getString(R.string.decision_dialog_key_negative_button),
-                    negativeButton
-                )
-            }
+            val decision = Decision(
+                getString(R.string.dialog_bookmark_prayer_title),
+                getString(R.string.dialog_bookmark_prayer_text),
+                getString(R.string.dialog_bookmark_prayer_positive_button),
+                getString(R.string.dialog_bookmark_prayer_negative_button),
+                DecisionType.PRAYER_ADD_BOOKMARK
+            )
 
             childFragmentManager.beginTransaction().add(
                 DecisionDialog::class.java,
-                bundle,
-                resources.getString(R.string.decision_dialog_tag)
+                decisionBundle(this, decision),
+                getString(R.string.decision_dialog_tag)
             ).commit()
+        }
+    }
+
+    override fun onSelectedAnswer(decisionType: DecisionType, isConfirmed: Boolean) {
+        when (decisionType) {
+            DecisionType.PRAYER_ADD_BOOKMARK ->
+                if (isConfirmed) {
+                    println("Clicked yes")
+                }
         }
     }
 }
