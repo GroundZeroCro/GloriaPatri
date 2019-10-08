@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.groundzero.gloriapatri.R
 import com.groundzero.gloriapatri.base.BaseFragment
 import com.groundzero.gloriapatri.data.Result
@@ -67,8 +68,11 @@ class PrayersFragment : BaseFragment(), Injectable {
 
   private fun inflateToolbar() {
     val buttonIcons: Array<out View> = arrayOf(
-      ToolbarButton(requireContext(),
-        ImageButton::class.java, R.drawable.bookmark_svg, {}).getButton()
+      ToolbarButton(
+        requireContext(),
+        ImageButton::class.java,
+        R.drawable.bookmark_svg
+      ) {findNavController().navigate(R.id.bookmarksFragment)}.getButton()
     )
     setToolbarButtons(buttonIcons)
   }

@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.features.prayers.ui.content
+package com.groundzero.gloriapatri.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,12 +13,15 @@ import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING
 import com.groundzero.gloriapatri.R
 import com.groundzero.gloriapatri.features.prayers.data.Prayer
 import com.groundzero.gloriapatri.databinding.ItemPrayersBinding
+import com.groundzero.gloriapatri.features.prayers.ui.content.ScrollingListener
 import com.groundzero.gloriapatri.features.singleprayer.SinglePrayerFragmentArgs
 import com.groundzero.gloriapatri.utils.navAnimOption
 
-
-class PrayerContentAdapter(private val listener: ScrollingListener) :
-  ListAdapter<Prayer, PrayerContentAdapter.ViewHolder>(
+/**
+ * Adapter is being used in prayers.content and bookmarks
+ */
+class ContentAdapter(private val listener: ScrollingListener) :
+  ListAdapter<Prayer, ContentAdapter.ViewHolder>(
     DiffCallback()
   ) {
 

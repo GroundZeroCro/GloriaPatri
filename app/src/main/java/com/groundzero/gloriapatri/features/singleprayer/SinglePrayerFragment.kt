@@ -45,7 +45,7 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
     val binding =
       FragmentSinglePrayerBinding.inflate(inflater, container, false)
         .apply {
-          prayer = viewModel.prayer(args.prayerId)
+          prayer = getSinglePrayer()
         }
     return binding.root
   }
@@ -84,8 +84,10 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
     when (decisionType) {
       DecisionType.PRAYER_ADD_BOOKMARK ->
         if (isConfirmed) {
-          println("Clicked yes")
+          viewModel.addBookmark(getSinglePrayer())
         }
     }
   }
+
+  private fun getSinglePrayer() = viewModel.prayer(args.prayerId)
 }

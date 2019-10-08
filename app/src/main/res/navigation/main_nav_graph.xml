@@ -24,7 +24,7 @@
         android:label="fragment_alarm_list"
         tools:layout="@layout/fragment_alarm_list" />
     <fragment
-        android:id="@+id/favoritesFragment"
+        android:id="@+id/bookmarksFragment"
         android:name="com.groundzero.gloriapatri.features.bookmarks.ui.BookmarksFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_bookmarks" />

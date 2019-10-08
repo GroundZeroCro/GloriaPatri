@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.groundzero.gloriapatri.di.helper.ViewModelFactory
 import com.groundzero.gloriapatri.di.helper.ViewModelKey
+import com.groundzero.gloriapatri.features.bookmarks.ui.BookmarksViewModel
 import com.groundzero.gloriapatri.features.prayers.ui.base.PrayersViewModel
 import com.groundzero.gloriapatri.features.singleprayer.SinglePrayerViewModel
 import dagger.Binds
@@ -22,6 +23,11 @@ abstract class ViewModelModule {
   @IntoMap
   @ViewModelKey(SinglePrayerViewModel::class)
   abstract fun bindSingleprayerViewModel(viewModel: SinglePrayerViewModel): ViewModel
+
+  @Binds
+  @IntoMap
+  @ViewModelKey(BookmarksViewModel::class)
+  abstract fun bindBookmarkViewModel(viewModel: BookmarksViewModel): ViewModel
 
   @Binds
   abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

@@ -2,6 +2,7 @@ package com.groundzero.gloriapatri.di.modules
 
 import android.app.Application
 import com.groundzero.gloriapatri.data.PersistenceDatabase
+import com.groundzero.gloriapatri.features.bookmarks.data.BookmarksDao
 import com.groundzero.gloriapatri.features.prayers.data.PrayersDao
 import dagger.Module
 import dagger.Provides
@@ -13,6 +14,10 @@ class PersistenceModule {
   @Singleton
   @Provides
   fun providePrayersDao(db: PersistenceDatabase): PrayersDao = db.getPrayersDao()
+
+  @Singleton
+  @Provides
+  fun provideBookmarkDao(db: PersistenceDatabase): BookmarksDao = db.getBookmarkDao()
 
   @Singleton
   @Provides

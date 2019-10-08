@@ -4,13 +4,19 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.groundzero.gloriapatri.features.bookmarks.data.BookmarkConverter
+import com.groundzero.gloriapatri.features.bookmarks.data.BookmarkPrayer
+import com.groundzero.gloriapatri.features.bookmarks.data.BookmarksDao
 import com.groundzero.gloriapatri.features.prayers.data.Prayer
 import com.groundzero.gloriapatri.features.prayers.data.PrayersDao
 
-@Database(entities = [Prayer::class], exportSchema = false, version = 1)
+@Database(entities = [Prayer::class, BookmarkPrayer::class], exportSchema = false, version = 1)
+@TypeConverters(BookmarkConverter::class)
 abstract class PersistenceDatabase : RoomDatabase() {
 
   abstract fun getPrayersDao(): PrayersDao
+  abstract fun getBookmarkDao(): BookmarksDao
 
   companion object {
 
