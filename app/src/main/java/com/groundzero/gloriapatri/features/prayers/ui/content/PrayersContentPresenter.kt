@@ -1,8 +1,8 @@
 package com.groundzero.gloriapatri.features.prayers.ui.content
 
 import android.os.Bundle
-import com.groundzero.gloriapatri.data.prayers.Prayer
-import com.groundzero.gloriapatri.data.prayers.PrayersDao
+import com.groundzero.gloriapatri.features.prayers.data.Prayer
+import com.groundzero.gloriapatri.features.prayers.data.PrayersDao
 import com.groundzero.gloriapatri.features.prayers.ui.base.PrayersViewModel
 import javax.inject.Inject
 

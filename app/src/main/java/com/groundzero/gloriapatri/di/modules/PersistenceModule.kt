@@ -2,7 +2,7 @@ package com.groundzero.gloriapatri.di.modules
 
 import android.app.Application
 import com.groundzero.gloriapatri.data.PersistenceDatabase
-import com.groundzero.gloriapatri.data.prayers.PrayersDao
+import com.groundzero.gloriapatri.features.prayers.data.PrayersDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

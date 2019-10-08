@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import com.groundzero.gloriapatri.R
 
+@Suppress("UNCHECKED_CAST")
 class ToolbarButton<T>(
   private val context: Context,
   private val clazz: Class<T>,

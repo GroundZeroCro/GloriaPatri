@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.features.bookmarks
+package com.groundzero.gloriapatri.features.bookmarks.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,6 +13,6 @@ class BookmarksFragment : Fragment() {
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    return inflater.inflate(R.layout.fragment_favorites, container, false)
+    return inflater.inflate(R.layout.fragment_bookmarks, container, false)
   }
 }

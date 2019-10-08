@@ -8,7 +8,7 @@ import androidx.lifecycle.map
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
-import com.groundzero.gloriapatri.data.prayers.Prayer
+import com.groundzero.gloriapatri.features.prayers.data.Prayer
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.tasks.await
 

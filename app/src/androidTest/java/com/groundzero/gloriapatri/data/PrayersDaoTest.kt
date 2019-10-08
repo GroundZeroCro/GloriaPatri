@@ -4,8 +4,8 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.groundzero.gloriapatri.base.BaseDao
-import com.groundzero.gloriapatri.data.prayers.Prayer
-import com.groundzero.gloriapatri.data.prayers.PrayersDao
+import com.groundzero.gloriapatri.features.prayers.data.Prayer
+import com.groundzero.gloriapatri.features.prayers.data.PrayersDao
 import com.groundzero.gloriapatri.utils.observeOnce
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.runBlocking

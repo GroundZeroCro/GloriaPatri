@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.groundzero.gloriapatri.data.prayers.Prayer
+import com.groundzero.gloriapatri.features.prayers.data.Prayer
 import com.groundzero.gloriapatri.features.prayers.ui.content.PrayersContentFragment
 
 class PrayersViewPagerAdapter(fm: FragmentManager) :

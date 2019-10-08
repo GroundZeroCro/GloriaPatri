@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.data.prayers
+package com.groundzero.gloriapatri.features.prayers.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

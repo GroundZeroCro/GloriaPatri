@@ -6,7 +6,7 @@
 
         <variable
             name="prayer"
-            type="com.groundzero.gloriapatri.data.prayers.Prayer" />
+            type="com.groundzero.gloriapatri.features.prayers.data.Prayer" />
     </data>
 
     <androidx.core.widget.NestedScrollView

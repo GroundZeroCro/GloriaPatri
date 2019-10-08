@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.groundzero.gloriapatri.data.prayers.Prayer
-import com.groundzero.gloriapatri.data.prayers.PrayersDao
+import com.groundzero.gloriapatri.features.prayers.data.Prayer
+import com.groundzero.gloriapatri.features.prayers.data.PrayersDao
 
 @Database(entities = [Prayer::class], exportSchema = false, version = 1)
 abstract class PersistenceDatabase : RoomDatabase() {
