@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.groundzero.gloriapatri.features.prayers.data.PrayersRepository
 import javax.inject.Inject
 
-class PrayersViewModel @Inject constructor(private val repository: PrayersRepository) :
+class PrayersViewModel @Inject constructor(repository: PrayersRepository) :
   ViewModel() {
 
   val prayers = repository.prayers
