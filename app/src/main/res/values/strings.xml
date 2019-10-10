@@ -24,4 +24,5 @@
     <string name="decision_dialog_exception_listener_not_implemented">DecisionDialog.Listener has to be implemented in parent class</string>
     <string name="decision_dialog_key_serialization">decision_dialog_key_serialization</string>
     <string name="decision_dialog_exception_wrong_bundle">Passed bundle needs to contain Decision serialized data</string>
+    <string name="remove_prayer_from_bookmark">Remove bookmark</string>
 </resources>

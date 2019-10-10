@@ -2,6 +2,7 @@ package com.groundzero.gloriapatri.features.bookmarks.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.groundzero.gloriapatri.features.prayers.data.Prayer
 
 @Dao
 interface BookmarksDao {

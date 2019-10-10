@@ -13,4 +13,5 @@ class SinglePrayerViewModel @Inject constructor(
 
   val prayer = fun(prayerId: String): Prayer = dao.getPrayerPerPrayerId(prayerId)
   val addBookmark = fun(prayer: Prayer) = repository.addBookmark(prayer)
+  val bookmarks = repository.getBookmarks()
 }

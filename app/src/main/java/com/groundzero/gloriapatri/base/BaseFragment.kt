@@ -10,6 +10,7 @@ open class BaseFragment : Fragment() {
   private var toolbarButtonGroup: ToolbarButtonGroup? = null
 
   protected fun setToolbarButtons(buttonIcons: Array<out View>) {
+    clearToolbar()
     toolbarButtonGroup = ToolbarButtonGroup(requireContext())
     toolbarButtonGroup!!.addButtons(buttonIcons)
     toolbarInflater = activity as ToolbarInflater
@@ -19,8 +20,12 @@ open class BaseFragment : Fragment() {
   protected fun setProgressBarVisibility(isVisible: Boolean) =
     (activity as ProgressBarCallback).changeVisibility(isVisible)
 
+  internal fun clearToolbar() {
+    toolbarButtonGroup?.onDestroy()
+  }
+
   override fun onStop() {
     super.onStop()
-    toolbarButtonGroup?.onDestroy()
+    clearToolbar()
   }
 }
