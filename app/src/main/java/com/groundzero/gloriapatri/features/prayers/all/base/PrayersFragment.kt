@@ -33,11 +33,15 @@ class PrayersFragment : BaseFragment(), Injectable {
     AndroidSupportInjection.inject(this)
   }
 
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    viewPagerAdapter = PrayersViewPagerAdapter(childFragmentManager)
+  }
+
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
   ): View? {
     inflateToolbar()
-    viewPagerAdapter = PrayersViewPagerAdapter(childFragmentManager)
     val binding =
       FragmentPrayersBinding.inflate(LayoutInflater.from(context), container, false).apply {
         prayersTabs.setupWithViewPager(prayersViewPager)

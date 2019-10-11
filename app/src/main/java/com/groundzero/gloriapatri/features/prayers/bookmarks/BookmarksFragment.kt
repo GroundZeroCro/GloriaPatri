@@ -12,8 +12,8 @@ import com.groundzero.gloriapatri.base.BaseFragment
 import com.groundzero.gloriapatri.databinding.FragmentBookmarksBinding
 import com.groundzero.gloriapatri.di.helper.injectViewModel
 import com.groundzero.gloriapatri.features.prayers.all.content.ScrollingListener
-import com.groundzero.gloriapatri.ui.adapter.ContentAdapter
-import com.groundzero.gloriapatri.ui.adapter.MarginItemDecoration
+import com.groundzero.gloriapatri.features.prayers.ui.ContentAdapter
+import com.groundzero.gloriapatri.features.prayers.ui.MarginItemDecoration
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_bookmarks.*
 import javax.inject.Inject
@@ -35,7 +35,11 @@ class BookmarksFragment : BaseFragment(), ScrollingListener {
       bookmarksRecyclerView.apply {
         this.adapter = adapter
         this.addItemDecoration(
-          MarginItemDecoration(resources.getDimension(R.dimen.item_prayer_recycler_margin).toInt())
+          MarginItemDecoration(
+            resources.getDimension(
+              R.dimen.item_prayer_recycler_margin
+            ).toInt()
+          )
         )
       }
 

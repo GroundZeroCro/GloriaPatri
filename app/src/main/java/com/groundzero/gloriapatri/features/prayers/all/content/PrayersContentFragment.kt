@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import com.groundzero.gloriapatri.R
 import com.groundzero.gloriapatri.databinding.FragmentPrayersContentBinding
 import com.groundzero.gloriapatri.di.helper.Injectable
-import com.groundzero.gloriapatri.ui.adapter.ContentAdapter
-import com.groundzero.gloriapatri.ui.adapter.MarginItemDecoration
+import com.groundzero.gloriapatri.features.prayers.ui.ContentAdapter
+import com.groundzero.gloriapatri.features.prayers.ui.MarginItemDecoration
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_prayers_content.*
 import javax.inject.Inject
@@ -36,7 +36,11 @@ class PrayersContentFragment : Fragment(), Injectable, ScrollingListener {
       prayersRecyclerView.apply {
         this.adapter = adapter
         this.addItemDecoration(
-          MarginItemDecoration(resources.getDimension(R.dimen.item_prayer_recycler_margin).toInt())
+          MarginItemDecoration(
+            resources.getDimension(
+              R.dimen.item_prayer_recycler_margin
+            ).toInt()
+          )
         )
       }
       adapter.submitList(presenter.prayers(presenter.getTag(arguments!!)))

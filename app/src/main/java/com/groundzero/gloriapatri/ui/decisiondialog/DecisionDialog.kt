@@ -49,11 +49,11 @@ class DecisionDialog : DialogFragment() {
           )
 
           decisionPositive.setOnClickListener {
-            // listener.onSelectedAnswer(decision.type, true)
+            listener.onSelectedAnswer(decision.type, true)
             dismiss()
           }
           decisionNegative.setOnClickListener {
-            // listener.onSelectedAnswer(decision.type, false)
+            listener.onSelectedAnswer(decision.type, false)
             dismiss()
           }
         }

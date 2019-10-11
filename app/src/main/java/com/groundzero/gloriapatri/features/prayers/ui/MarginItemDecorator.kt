@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.ui.adapter
+package com.groundzero.gloriapatri.features.prayers.ui
 
 import android.graphics.Rect
 import android.view.View
