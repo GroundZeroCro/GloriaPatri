@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.features.prayers.ui.content
+package com.groundzero.gloriapatri.features.prayers.all.content
 
 import android.content.Context
 import android.os.Bundle

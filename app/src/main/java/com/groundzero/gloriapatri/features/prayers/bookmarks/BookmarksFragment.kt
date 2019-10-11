@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.features.bookmarks.ui
+package com.groundzero.gloriapatri.features.prayers.bookmarks
 
 import android.content.Context
 import android.os.Bundle
@@ -11,7 +11,7 @@ import com.groundzero.gloriapatri.R
 import com.groundzero.gloriapatri.base.BaseFragment
 import com.groundzero.gloriapatri.databinding.FragmentBookmarksBinding
 import com.groundzero.gloriapatri.di.helper.injectViewModel
-import com.groundzero.gloriapatri.features.prayers.ui.content.ScrollingListener
+import com.groundzero.gloriapatri.features.prayers.all.content.ScrollingListener
 import com.groundzero.gloriapatri.ui.adapter.ContentAdapter
 import com.groundzero.gloriapatri.ui.adapter.MarginItemDecoration
 import dagger.android.support.AndroidSupportInjection
@@ -39,8 +39,8 @@ class BookmarksFragment : BaseFragment(), ScrollingListener {
         )
       }
 
-      viewModel.bookmarks.observe(this@BookmarksFragment, Observer { t ->
-        adapter.submitList(t.map { bookmarkPrayer -> bookmarkPrayer.prayer })
+      viewModel.bookmarks.observe(this@BookmarksFragment, Observer { bookmarked ->
+        adapter.submitList(bookmarked)
       })
     }.root
   }

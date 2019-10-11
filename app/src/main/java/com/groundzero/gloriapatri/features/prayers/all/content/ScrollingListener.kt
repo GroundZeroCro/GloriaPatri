@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.features.prayers.ui.content
+package com.groundzero.gloriapatri.features.prayers.all.content
 
 interface ScrollingListener {
   fun getRecyclerScrollState(): Int

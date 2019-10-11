@@ -20,4 +20,10 @@ interface PrayersDao {
 
   @Query("SELECT * FROM prayers WHERE prayerId = :prayerId LIMIT 1")
   fun getPrayerPerPrayerId(prayerId: String): Prayer
+
+  @Query("SELECT * FROM prayers WHERE isBookmarked = 1")
+  fun getBookmarkedPrayers(): LiveData<List<Prayer>>
+
+  @Insert(onConflict = OnConflictStrategy.REPLACE)
+  fun addBookmark(prayer: Prayer)
 }

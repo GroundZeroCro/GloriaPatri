@@ -1,11 +1,11 @@
-package com.groundzero.gloriapatri.features.prayers.ui.base
+package com.groundzero.gloriapatri.features.prayers.all.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.groundzero.gloriapatri.features.prayers.data.Prayer
-import com.groundzero.gloriapatri.features.prayers.ui.content.PrayersContentFragment
+import com.groundzero.gloriapatri.features.prayers.all.content.PrayersContentFragment
 
 class PrayersViewPagerAdapter(fm: FragmentManager) :
   FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

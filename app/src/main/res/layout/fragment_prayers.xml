@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".features.prayers.ui.base.PrayersFragment">
+        tools:context=".features.prayers.all.base.PrayersFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/prayers_app_bar_layout"

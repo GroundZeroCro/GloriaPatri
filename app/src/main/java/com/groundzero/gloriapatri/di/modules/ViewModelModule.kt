@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.groundzero.gloriapatri.di.helper.ViewModelFactory
 import com.groundzero.gloriapatri.di.helper.ViewModelKey
-import com.groundzero.gloriapatri.features.bookmarks.ui.BookmarksViewModel
-import com.groundzero.gloriapatri.features.prayers.ui.base.PrayersViewModel
+import com.groundzero.gloriapatri.features.prayers.bookmarks.BookmarksViewModel
+import com.groundzero.gloriapatri.features.prayers.all.base.PrayersViewModel
 import com.groundzero.gloriapatri.features.singleprayer.SinglePrayerViewModel
 import dagger.Binds
 import dagger.Module

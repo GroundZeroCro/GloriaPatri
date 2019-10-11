@@ -20,7 +20,7 @@ open class BaseFragment : Fragment() {
   protected fun setProgressBarVisibility(isVisible: Boolean) =
     (activity as ProgressBarCallback).changeVisibility(isVisible)
 
-  internal fun clearToolbar() {
+  private fun clearToolbar() {
     toolbarButtonGroup?.onDestroy()
   }
 

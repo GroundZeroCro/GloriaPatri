@@ -12,5 +12,7 @@ data class Prayer(
   var title: String = "",
   var text: String = "",
   var prayerId: String = "",
-  var tag: String = ""
+  var tag: String = "",
+  @Exclude
+  var isBookmarked: Boolean = false
 )

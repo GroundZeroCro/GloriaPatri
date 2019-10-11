@@ -1,4 +1,4 @@
-package com.groundzero.gloriapatri.features.prayers.ui.base
+package com.groundzero.gloriapatri.features.prayers.all.base
 
 import androidx.lifecycle.ViewModel
 import com.groundzero.gloriapatri.features.prayers.data.PrayersRepository

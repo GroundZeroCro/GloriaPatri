@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.groundzero.gloriapatri.R
@@ -15,8 +14,7 @@ import com.groundzero.gloriapatri.base.BaseFragment
 import com.groundzero.gloriapatri.databinding.FragmentSinglePrayerBinding
 import com.groundzero.gloriapatri.di.helper.Injectable
 import com.groundzero.gloriapatri.di.helper.injectViewModel
-import com.groundzero.gloriapatri.features.bookmarks.ui.BookmarksViewModel
-import com.groundzero.gloriapatri.features.prayers.data.Prayer
+import com.groundzero.gloriapatri.features.prayers.bookmarks.BookmarksViewModel
 import com.groundzero.gloriapatri.ui.decisiondialog.Decision
 import com.groundzero.gloriapatri.ui.decisiondialog.DecisionDialog
 import com.groundzero.gloriapatri.ui.decisiondialog.DecisionType
@@ -49,18 +47,8 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
     return FragmentSinglePrayerBinding.inflate(inflater, container, false)
       .apply {
         prayer = getSinglePrayer()
-        subscribeBookmark(prayer)
+        if (prayer!!.isBookmarked) inflateToolbar(true) else inflateToolbar(false)
       }.root
-  }
-
-  /**
-   * Is monitoring bookmarks in order to change toolbar button state.
-   */
-  private fun subscribeBookmark(prayer: Prayer?) {
-    bookmarkViewModel.bookmarks.observe(this@SinglePrayerFragment, Observer { t ->
-      val isBookmarked = t.map { bookmarkPrayer -> bookmarkPrayer.prayer }.contains(prayer)
-      inflateToolbar(isBookmarked)
-    })
   }
 
   private fun inflateToolbar(isBookmarked: Boolean) {
@@ -73,7 +61,6 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
     )
     setToolbarButtons(buttonIcons)
   }
-  // TODO implement removing bookmark
 
   private fun openDecisionDialog() {
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/prayersFragment"
-        android:name="com.groundzero.gloriapatri.features.prayers.ui.base.PrayersFragment"
+        android:name="com.groundzero.gloriapatri.features.prayers.all.base.PrayersFragment"
         android:label="fragment_prayers"
         tools:layout="@layout/fragment_prayers" />
     <fragment
@@ -25,7 +25,7 @@
         tools:layout="@layout/fragment_alarm_list" />
     <fragment
         android:id="@+id/bookmarksFragment"
-        android:name="com.groundzero.gloriapatri.features.bookmarks.ui.BookmarksFragment"
+        android:name="com.groundzero.gloriapatri.features.prayers.bookmarks.BookmarksFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_bookmarks" />
 

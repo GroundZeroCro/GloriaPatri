@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_DRAGGING
 import com.groundzero.gloriapatri.R
 import com.groundzero.gloriapatri.features.prayers.data.Prayer
 import com.groundzero.gloriapatri.databinding.ItemPrayersBinding
-import com.groundzero.gloriapatri.features.prayers.ui.content.ScrollingListener
+import com.groundzero.gloriapatri.features.prayers.all.content.ScrollingListener
 import com.groundzero.gloriapatri.features.singleprayer.SinglePrayerFragmentArgs
 import com.groundzero.gloriapatri.utils.navAnimOption
 
