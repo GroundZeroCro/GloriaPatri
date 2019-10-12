@@ -13,11 +13,16 @@
     <string name="toolbar_exception_wrong_view_passed">Passed wrong view object!</string>
     <!--Toast messages-->
     <string name="error_fetching_data">Unable to fetch data</string>
-    <!--Dialog Bookmark prayer-->
+    <!--Dialog Bookmark prayer add-->
     <string name="dialog_bookmark_prayer_title">Add to Bookmarks</string>
     <string name="dialog_bookmark_prayer_text">Would you like to bookmark prayer?</string>
     <string name="dialog_bookmark_prayer_positive_button">Add</string>
     <string name="dialog_bookmark_prayer_negative_button">Cancel</string>
+    <!--Dialog Bookmark prayer remove-->
+    <string name="dialog_remove_bookmark_prayer_title">Attention</string>
+    <string name="dialog_remove_bookmark_prayer_text">Are you sure you want to remove this prayer from bookmarks?</string>
+    <string name="dialog_remove_bookmark_prayer_positive_button">Remove</string>
+    <string name="dialog_remove_bookmark_prayer_negative_button">Cancel</string>
     <!--Decision Dialog-->
     <string name="decision_dialog_tag">decision_dialog_tag</string>
     <string name="decision_dialog_exception_no_bundle">Bundle wasn\'t included upon opening DecisionDialog</string>
@@ -25,8 +30,7 @@
     <string name="decision_dialog_key_serialization">decision_dialog_key_serialization</string>
     <string name="decision_dialog_exception_wrong_bundle">Passed bundle needs to contain Decision serialized data</string>
     <string name="remove_prayer_from_bookmark">Remove bookmark</string>
-    <string name="dialog_remove_bookmark_prayer_title">Attention</string>
-    <string name="dialog_remove_bookmark_prayer_text">Are you sure you want to remove this prayer from bookmarks?</string>
-    <string name="dialog_remove_bookmark_prayer_positive_button">Remove</string>
-    <string name="dialog_remove_bookmark_prayer_negative_button">Cancel</string>
+    <!--Single Prayer-->
+    <string name="single_prayer_add_bookmark">Prayer bookmarked</string>
+    <string name="single_prayer_remove_bookmark">Successfully removed from bookmarks</string>
 </resources>

@@ -97,10 +97,14 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
     if (isConfirmed) {
       val prayer = viewModel.prayer(args.prayerId)
       when (decisionType) {
-        DecisionType.PRAYER_ADD_BOOKMARK ->
+        DecisionType.PRAYER_ADD_BOOKMARK ->{
           viewModel.changeBookmarkedState(prayer, true)
-        DecisionType.PRAYER_REMOVE_BOOKMARK ->
+          showMessage(getString(R.string.single_prayer_add_bookmark))
+        }
+        DecisionType.PRAYER_REMOVE_BOOKMARK ->{
           viewModel.changeBookmarkedState(prayer, false)
+          showMessage(getString(R.string.single_prayer_remove_bookmark))
+        }
       }
     }
   }
