@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.groundzero.gloriapatri.R
@@ -14,7 +15,6 @@ import com.groundzero.gloriapatri.base.BaseFragment
 import com.groundzero.gloriapatri.databinding.FragmentSinglePrayerBinding
 import com.groundzero.gloriapatri.di.helper.Injectable
 import com.groundzero.gloriapatri.di.helper.injectViewModel
-import com.groundzero.gloriapatri.features.prayers.bookmarks.BookmarksViewModel
 import com.groundzero.gloriapatri.ui.decisiondialog.Decision
 import com.groundzero.gloriapatri.ui.decisiondialog.DecisionDialog
 import com.groundzero.gloriapatri.ui.decisiondialog.DecisionType
@@ -27,8 +27,7 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
 
   @Inject
   lateinit var viewModelFactory: ViewModelProvider.Factory
-  private lateinit var prayerViewModel: SinglePrayerViewModel
-  private lateinit var bookmarkViewModel: BookmarksViewModel
+  private lateinit var viewModel: SinglePrayerViewModel
   private val args by navArgs<SinglePrayerFragmentArgs>()
 
   override fun onAttach(context: Context) {
@@ -40,14 +39,19 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    prayerViewModel = injectViewModel(viewModelFactory)
-    bookmarkViewModel = injectViewModel(viewModelFactory)
+    viewModel = injectViewModel(viewModelFactory)
     setProgressBarVisibility(false)
+
 
     return FragmentSinglePrayerBinding.inflate(inflater, container, false)
       .apply {
-        prayer = getSinglePrayer()
-        if (prayer!!.isBookmarked) inflateToolbar(true) else inflateToolbar(false)
+        viewModel.prayerLive(args.prayerId).observe(this@SinglePrayerFragment, Observer { prayer ->
+          this.prayer = prayer
+          if (this.prayer!!.isBookmarked)
+            inflateToolbar(true)
+          else
+            inflateToolbar(false)
+        })
       }.root
   }
 
@@ -57,21 +61,29 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
         requireContext(),
         Button::class.java,
         if (isBookmarked) R.string.remove_prayer_from_bookmark else R.string.add_prayer_to_bookmark
-      ) { openDecisionDialog() }.getButton()
+      ) { openDecisionDialog(isBookmarked) }.getButton()
     )
     setToolbarButtons(buttonIcons)
   }
 
-  private fun openDecisionDialog() {
+  private fun openDecisionDialog(isBookmarked: Boolean) {
 
     requireContext().apply {
-      val decision = Decision(
-        getString(R.string.dialog_bookmark_prayer_title),
-        getString(R.string.dialog_bookmark_prayer_text),
-        getString(R.string.dialog_bookmark_prayer_positive_button),
-        getString(R.string.dialog_bookmark_prayer_negative_button),
-        DecisionType.PRAYER_ADD_BOOKMARK
-      )
+      val decision = Decision().apply {
+        if (isBookmarked) {
+          title = getString(R.string.dialog_remove_bookmark_prayer_title)
+          text = getString(R.string.dialog_remove_bookmark_prayer_text)
+          positiveButton = getString(R.string.dialog_remove_bookmark_prayer_positive_button)
+          negativeButton = getString(R.string.dialog_remove_bookmark_prayer_negative_button)
+          type = DecisionType.PRAYER_REMOVE_BOOKMARK
+        } else {
+          title = getString(R.string.dialog_bookmark_prayer_title)
+          text = getString(R.string.dialog_bookmark_prayer_text)
+          positiveButton = getString(R.string.dialog_bookmark_prayer_positive_button)
+          negativeButton = getString(R.string.dialog_bookmark_prayer_negative_button)
+          type = DecisionType.PRAYER_ADD_BOOKMARK
+        }
+      }
 
       childFragmentManager.beginTransaction().add(
         DecisionDialog::class.java,
@@ -82,13 +94,14 @@ class SinglePrayerFragment : BaseFragment(), Injectable, DecisionDialog.Listener
   }
 
   override fun onSelectedAnswer(decisionType: DecisionType, isConfirmed: Boolean) {
-    when (decisionType) {
-      DecisionType.PRAYER_ADD_BOOKMARK ->
-        if (isConfirmed) {
-          prayerViewModel.addBookmark(getSinglePrayer())
-        }
+    if (isConfirmed) {
+      val prayer = viewModel.prayer(args.prayerId)
+      when (decisionType) {
+        DecisionType.PRAYER_ADD_BOOKMARK ->
+          viewModel.changeBookmarkedState(prayer, true)
+        DecisionType.PRAYER_REMOVE_BOOKMARK ->
+          viewModel.changeBookmarkedState(prayer, false)
+      }
     }
   }
-
-  private fun getSinglePrayer() = prayerViewModel.prayer(args.prayerId)
 }

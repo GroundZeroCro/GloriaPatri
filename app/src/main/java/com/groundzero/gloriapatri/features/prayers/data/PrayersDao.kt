@@ -1,10 +1,7 @@
 package com.groundzero.gloriapatri.features.prayers.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface PrayersDao {
@@ -19,11 +16,14 @@ interface PrayersDao {
   fun getPrayersPerTag(tag: String): List<Prayer>
 
   @Query("SELECT * FROM prayers WHERE prayerId = :prayerId LIMIT 1")
+  fun getPrayerPerPrayerIdLive(prayerId: String): LiveData<Prayer>
+
+  @Query("SELECT * FROM prayers WHERE prayerId = :prayerId LIMIT 1")
   fun getPrayerPerPrayerId(prayerId: String): Prayer
 
   @Query("SELECT * FROM prayers WHERE isBookmarked = 1")
   fun getBookmarkedPrayers(): LiveData<List<Prayer>>
 
-  @Insert(onConflict = OnConflictStrategy.REPLACE)
-  fun addBookmark(prayer: Prayer)
+  @Update
+  fun changeBookmarkState(prayer: Prayer)
 }

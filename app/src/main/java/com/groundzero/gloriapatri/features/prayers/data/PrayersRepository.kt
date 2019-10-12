@@ -15,7 +15,9 @@ class PrayersRepository @Inject constructor(
     saveCallResult = { dao.insertAll(it) }
   )
 
-  val bookmarked = dao.getBookmarkedPrayers()
-  fun getSinglePrayer(prayerId: String): Prayer = dao.getPrayerPerPrayerId(prayerId)
-  fun addBookmark(prayer: Prayer) = dao.addBookmark(prayer.apply { isBookmarked = true })
+  val bookmarksLive = dao.getBookmarkedPrayers()
+  fun getPrayerLive(prayerId: String) = dao.getPrayerPerPrayerIdLive(prayerId)
+  fun getPrayer(prayerId: String) = dao.getPrayerPerPrayerId(prayerId)
+  fun changBookmarkState(prayer: Prayer, isBookmarked: Boolean) =
+    dao.changeBookmarkState(prayer.apply { this.isBookmarked = isBookmarked })
 }
