@@ -66,10 +66,6 @@ class PrayersFragment : BaseFragment(), Injectable {
     return binding.root
   }
 
-  private fun showMessage(message: String) {
-    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
-  }
-
   private fun inflateToolbar() {
     val buttonIcons: Array<out View> = arrayOf(
       ToolbarButton(
