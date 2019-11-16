@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.groundzero.gloriapatri.features.prayers.data.Prayer
 import com.groundzero.gloriapatri.features.prayers.data.PrayersDao
-import com.groundzero.gloriapatri.utils.LanguageUtils.Companion.getLocaleString
 
 @Database(entities = [Prayer::class], exportSchema = false, version = 1)
 abstract class PersistenceDatabase : RoomDatabase() {
@@ -18,23 +17,32 @@ abstract class PersistenceDatabase : RoomDatabase() {
     @Volatile
     private var instance: PersistenceDatabase? = null
 
-    fun getInstance(context: Context): PersistenceDatabase =
+    fun getInstance(
+      context: Context,
+      locale: String
+    ): PersistenceDatabase =
       instance
         ?: buildDatabase(
-          context
+          context,
+          locale
         ).also { instance = it }
 
-    private fun buildDatabase(context: Context): PersistenceDatabase {
+    private fun buildDatabase(
+      context: Context,
+      locale: String
+    ): PersistenceDatabase {
+
+      val assetsPrayersPath = "database/$locale/prayers.db"
+
       return Room.databaseBuilder(
         context, PersistenceDatabase::class.java,
         PRAYERS_DATABASE_NAME
       )
         .allowMainThreadQueries()
-        .createFromAsset(ASSETS_PRAYERS_PATH)
+        .createFromAsset(assetsPrayersPath)
         .build()
     }
 
     private const val PRAYERS_DATABASE_NAME = "prayers_database"
-    private var ASSETS_PRAYERS_PATH = "database/${getLocaleString().getLocale()}/prayers.db"
   }
 }
