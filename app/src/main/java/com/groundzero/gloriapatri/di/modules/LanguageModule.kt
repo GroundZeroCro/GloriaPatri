@@ -7,6 +7,7 @@ import com.groundzero.gloriapatri.utils.SharedPreferencesUtils
 import com.groundzero.gloriapatri.utils.SupportedLanguages
 import dagger.Module
 import dagger.Provides
+import java.util.*
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -21,9 +22,9 @@ class LanguageModule {
   ): SupportedLanguages {
     val locale: String =
       sharedPreferencesUtils.getStringValue(context.getString(R.string.locale_key))
-        ?: LanguageUtils.getLocaleString().getLocale()
+        ?: LanguageUtils.getLocaleString(Locale.getDefault().toString()).getLocale()
 
-    return SupportedLanguages.getEnum(locale)!!
+    return LanguageUtils.getLocaleString(locale)
   }
 
   @Singleton

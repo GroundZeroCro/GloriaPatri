@@ -30,7 +30,7 @@ class LocaleHandler @Inject constructor(
     println("Storing locale "+supportedLanguages.getLocale())
     sharedPreferencesUtils.setStringValue(
       context.getString(R.string.locale_key),
-      LanguageUtils.getLocaleString().getLocale()
+      LanguageUtils.getLocaleString(Locale.getDefault().toString()).getLocale()
     )
     println("Stored shared locale " + sharedPreferencesUtils.getStringValue(context.getString(R.string.locale_key)))
   }
