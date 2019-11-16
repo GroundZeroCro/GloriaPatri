@@ -17,23 +17,32 @@ abstract class PersistenceDatabase : RoomDatabase() {
     @Volatile
     private var instance: PersistenceDatabase? = null
 
-    fun getInstance(context: Context): PersistenceDatabase =
+    fun getInstance(
+      context: Context,
+      locale: String
+    ): PersistenceDatabase =
       instance
         ?: buildDatabase(
-          context
+          context,
+          locale
         ).also { instance = it }
 
-    private fun buildDatabase(context: Context): PersistenceDatabase {
+    private fun buildDatabase(
+      context: Context,
+      locale: String
+    ): PersistenceDatabase {
+
+      val assetsPrayersPath = "database/$locale/prayers.db"
+
       return Room.databaseBuilder(
         context, PersistenceDatabase::class.java,
         PRAYERS_DATABASE_NAME
       )
         .allowMainThreadQueries()
-        .createFromAsset(ASSETS_PRAYERS_PATH)
+        .createFromAsset(assetsPrayersPath)
         .build()
     }
 
     private const val PRAYERS_DATABASE_NAME = "prayers_database"
-    private const val ASSETS_PRAYERS_PATH = "database/prayers.db"
   }
 }

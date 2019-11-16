@@ -9,6 +9,8 @@
     <string name="settings">Postavke</string>
     <string name="about">O aplikaciji</string>
     <string name="add_prayer_to_bookmark">Add to Bookmarks</string>
+    <!--Persistence constants-->
+    <string name="locale_key">locale_key</string>
     <!--Exceptions-->
     <string name="toolbar_exception_wrong_view_passed">Passed wrong view object!</string>
     <!--Toast messages-->
