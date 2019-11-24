@@ -28,5 +28,10 @@
         android:name="com.groundzero.gloriapatri.features.prayers.bookmarks.BookmarksFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_bookmarks" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.groundzero.gloriapatri.features.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>
